@@ -107,6 +107,7 @@ body::after{
 h2{    
     text-align: center;
     margin: 35px;
+    color: white;
 }
 
 .todo-add{
