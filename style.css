@@ -157,7 +157,7 @@ ul li {
   align-items: center;
   position: relative;
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
+  border-radius: 1rem;
   overflow: hidden;
   backdrop-filter: blur(15px);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -239,11 +239,11 @@ li.checked p {
 
 @media (max-width: 400px) {
   .container {
-    width: 60vw;
+    width: 80vw;
     min-height: 40vh;
   }
   #todo-input {
-    width: 150px;
+    width: 10rem;
   }
   .box1 {
     width: 100px;
