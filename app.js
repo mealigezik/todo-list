@@ -2,7 +2,7 @@ const todoInput = document.getElementById("todo-input");
 const addBtn = document.getElementById("todo-button");
 const todoUl = document.getElementById("todo-ul");
 
-const todos = JSON.parse(localStorage.getItem("TODOS")) || []; //! beyaz kagit mantiginda bos array ile basliyoruz. JSON yapisi ile objeleri array icine alacagiz
+let todos = JSON.parse(localStorage.getItem("TODOS")) || []; //! beyaz kagit mantiginda bos array ile basliyoruz. JSON yapisi ile objeleri array icine alacagiz
 
 const renderSavedTodos = () => {
     todos.forEach((todo) => {
