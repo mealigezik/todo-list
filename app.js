@@ -2,7 +2,14 @@ const todoInput = document.getElementById("todo-input");
 const addBtn = document.getElementById("todo-button");
 const todoUl = document.getElementById("todo-ul");
 
-const todos = []; //! beyaz kagit mantiginda bos array ile basliyoruz. JSON yapisi ile objeleri array icine alacagiz
+const todos = JSON.parse(localStorage.getItem("TODOS")) || []; //! beyaz kagit mantiginda bos array ile basliyoruz. JSON yapisi ile objeleri array icine alacagiz
+
+const renderSavedTodos = () => {
+    todos.forEach((todo) => {
+        createListElement(todo);
+    });
+}
+renderSavedTodos();
 
 addBtn.addEventListener("click", () => {
   if (todoInput.value.trim() === "") {
@@ -17,6 +24,7 @@ addBtn.addEventListener("click", () => {
     };
     createListElement(newTodo);
     todos.push(newTodo);
+    localStorage.setItem("TODOS", JSON.stringify(todos))
     todoInput.value = ""; //! click oldugu zaman input icindeki value sifirlansin
   }
 });
@@ -47,14 +55,16 @@ todoUl.addEventListener("click", (e) => {
     const id = e.target.parentElement.getAttribute("id");
     if (e.target.classList.contains("fa-trash")){
         e.target.parentElement.remove();
-        todos.filter((todo) => todo.id !== Number(id))
+        todos = todos.filter((todo) => todo.id !== Number(id))
+        localStorage.setItem("TODOS", JSON.stringify(todos)) //?localstorage gücellemesi
     }else if(e.target.classList.contains("fa-check")){
         e.target.parentElement.classList.toggle("checked");
         todos.map((todo, index) => {
             if (todo.id == id){
                 todos[index].completed = !todos[index].completed;
             }
-        })
+        });
+        localStorage.setItem("TODOS", JSON.stringify(todos));
     }
     
 })
