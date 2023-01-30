@@ -169,7 +169,7 @@ h2{
   }
   
   ul li:nth-child(even) {
-    /* background: #1eff45; */
+    background: #53555395;
   }
   
   ul li:hover {
@@ -201,6 +201,7 @@ h2{
     color: gainsboro;
     text-decoration: line-through;
     font-weight: normal;
+    font-style: italic;
   }
 
 @media (max-width:768px ) {
